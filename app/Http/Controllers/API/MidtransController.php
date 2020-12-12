@@ -37,7 +37,7 @@ class MidtransController extends Controller
                 if ($fraud == 'challenge') {
                     $transaction->status = 'PENDING';
                 } else {
-                    $transaction->status = 'SUCCESS';
+                    $transaction->status = 'unfinish';
                 }
             }
         } else if ($status == 'settlement') {
@@ -54,5 +54,23 @@ class MidtransController extends Controller
 
         // Save Transaction
         $transaction->save();
+    }
+
+    // Create Page Success Transaction
+    public function success()
+    {
+        return view('midtrans.success');
+    }
+
+    // Create Page unfinish Transaction
+    public function unfinish()
+    {
+        return view('midtrans.unfinish');
+    }
+
+    // Create Page Error Transaction
+    public function error()
+    {
+        return view('midtrans.error');
     }
 }

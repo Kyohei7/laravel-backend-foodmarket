@@ -32,7 +32,7 @@ class UserController extends Controller
 
             // Validation Data User
             $credentials = request(['email', 'password']);
-            if (!Auth::attempt([$credentials])) {
+            if (!Auth::attempt($credentials)) {
                 return ResponseFormatter::error([
                     'message' => 'Unauthorized'
                 ], 'Authentication Failed', 500);
