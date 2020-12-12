@@ -58,4 +58,14 @@ class TransactionController extends Controller
             'Success Get Data List Transaction'
         );
     }
+
+    // API Update Data Transaction by ID
+    public function update(Request $request, $id)
+    {
+        $transaction = Transaction::findOrFail($id);
+
+        $transaction->update($request->all());
+
+        return ResponseFormatter::success($transaction, 'Success Update Transaction');
+    }
 }

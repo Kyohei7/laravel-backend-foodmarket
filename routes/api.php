@@ -3,7 +3,6 @@
 use App\Http\Controllers\API\FoodController;
 use App\Http\Controllers\API\TransactionController;
 use App\Http\Controllers\API\UserController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +23,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('logout', [UserController::class, 'logout']);
 
     Route::get('transaction', [TransactionController::class, 'all']);
+    Route::post('transaction/{id}', [TransactionController::class, 'update']);
 });
 
 // User can Access before Login
