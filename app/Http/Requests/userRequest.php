@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use App\Actions\Fortify\PasswordValidationRules;
 
-class userRequest extends FormRequest
+class UserRequest extends FormRequest
 {
 
     use PasswordValidationRules;
