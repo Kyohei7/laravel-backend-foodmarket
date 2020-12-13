@@ -28,7 +28,7 @@ class FoodController extends Controller
      */
     public function create()
     {
-        //
+        return view('food.create');
     }
 
     /**
@@ -39,7 +39,13 @@ class FoodController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $data['picturePath'] = $request->file('picturePath')->store('assets/food', 'public');
+
+        Food::create($data);
+
+        return redirect()->route('food.index');
     }
 
     /**
