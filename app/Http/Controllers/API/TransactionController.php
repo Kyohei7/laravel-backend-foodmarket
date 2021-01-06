@@ -100,6 +100,10 @@ class  TransactionController extends Controller
         Config::$isSanitized = config('services.midtrans.isSanitized');
         Config::$is3ds = config('services.midtrans.is3ds');
 
+        // $key =  config('services.midtrans.serverKey');
+        // var_dump($key);
+        // die;
+
         // Call Transaction after created
         $transaction = Transaction::with(['food', 'user'])->find($transaction->id);
 
